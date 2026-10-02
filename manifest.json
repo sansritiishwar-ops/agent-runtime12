@@ -1,0 +1,11 @@
+{
+  "base_image": "neurostack-runtime:0.0.1",
+  "allowed_dependencies": [
+    "requests==2.32.*",
+    "pandas==2.2.*",
+    "httpx==0.28.*",
+    "python-dotenv==1.*",
+    "SQLAlchemy==2.0.*",
+    "google-cloud-storage==2.*"
+  ]
+}
