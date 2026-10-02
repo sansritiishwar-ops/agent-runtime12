@@ -1,0 +1,15 @@
+{
+  "name": "ai_infrastructure_agent",
+  "displayName": "Ai Infrastructure Agent",
+  "description": "Generates Infrastructure-as-Code for AI platform deployments",
+  "url": "http://localhost:8001/a2a/ai_infrastructure_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ]
+}
