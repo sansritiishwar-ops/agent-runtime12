@@ -10,5 +10,5 @@ ajjsooa
 """
 
 SYSTEM_PROMPT = """
-cjiwoanamma
+cjiwoanamma sjiiqoammO
 """

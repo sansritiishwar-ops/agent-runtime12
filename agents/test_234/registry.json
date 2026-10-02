@@ -1,6 +1,6 @@
 {
   "artifact_type": "agent",
-  "change_type": "create",
+  "change_type": "edit",
   "config": {
     "agent_level_auth_required": false,
     "connectors": [],
@@ -9,8 +9,9 @@
       "tool_filter": null,
       "tool_names": []
     },
+    "fork_confirmed": false,
     "guardrails": null,
-    "instructions": "cjiwoanamma",
+    "instructions": "cjiwoanamma sjiiqoammO",
     "mcp_servers": [],
     "model_settings": {
       "max_tokens": null,
@@ -38,17 +39,17 @@
   ],
   "name": "test_234",
   "origin": "tenant_generated",
-  "replaces_version_no": null,
+  "replaces_version_no": 1,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_4ec907bb0fbd",
-    "tier": 1
+    "decision_id": "risk_492024f453bd",
+    "tier": 2
   },
   "schema_version": 1,
   "secret_refs": [],
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.0",
-  "version_no": 1
+  "version": "1.0.1",
+  "version_no": 2
 }
