@@ -1,0 +1,40 @@
+{
+  "name": "testing_14",
+  "displayName": "Testing 14",
+  "description": "this is for testing",
+  "url": "http://localhost:8001/a2a/testing_14",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "input_validation"
+    ],
+    "output": [
+      "output_validation",
+      "content_moderation"
+    ],
+    "tool": {
+      "enabled": [
+        "tool_blacklisting",
+        "tool_whitelisting"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "execute_sql_query",
+          "fetch_data_from_table",
+          "load_memory",
+          "load_artifacts"
+        ]
+      }
+    },
+    "traceability": true
+  }
+}
