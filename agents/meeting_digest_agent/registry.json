@@ -1,6 +1,6 @@
 {
   "artifact_type": "agent",
-  "change_type": "create",
+  "change_type": "edit",
   "config": {
     "agent_level_auth_required": false,
     "connectors": [],
@@ -9,8 +9,9 @@
       "tool_filter": null,
       "tool_names": []
     },
+    "fork_confirmed": false,
     "guardrails": {
-      "custom_config": null,
+      "custom_config": {},
       "enable_traceability": true,
       "enabled_input_guardrails": [
         "prompt_injection",
@@ -27,7 +28,7 @@
     "mcp_servers": [],
     "model_settings": {
       "max_tokens": null,
-      "name": "default",
+      "name": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
       "temperature": 0.7,
       "top_k": null,
       "top_p": null
@@ -54,8 +55,8 @@
       },
       "enabled": [],
       "enabled_guardrails": [
-        "tool_whitelisting",
-        "argument_validation"
+        "argument_validation",
+        "tool_whitelisting"
       ]
     }
   },
@@ -78,17 +79,17 @@
   ],
   "name": "meeting_digest_agent",
   "origin": "tenant_generated",
-  "replaces_version_no": null,
+  "replaces_version_no": 1,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_f36689bce4f6",
-    "tier": 1
+    "decision_id": "risk_f73ff0becef3",
+    "tier": 2
   },
   "schema_version": 1,
   "secret_refs": [],
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.0",
-  "version_no": 1
+  "version": "1.0.1",
+  "version_no": 2
 }
