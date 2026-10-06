@@ -1,0 +1,40 @@
+{
+  "name": "meeting_digest_agent",
+  "displayName": "Meeting Digest Agent",
+  "description": "Converts raw meeting and interview-call transcripts into structured digests with summary, decisions, action items, and open questions.",
+  "url": "http://localhost:8001/a2a/meeting_digest_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "jailbreak_detection",
+      "pii_detection"
+    ],
+    "output": [
+      "output_validation",
+      "output_pii_redaction"
+    ],
+    "tool": {
+      "enabled": [
+        "argument_validation",
+        "tool_whitelisting"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "load_artifacts",
+          "load_memory",
+          "summarize_meeting"
+        ]
+      }
+    },
+    "traceability": true
+  }
+}

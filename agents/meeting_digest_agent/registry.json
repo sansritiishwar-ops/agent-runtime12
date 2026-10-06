@@ -1,0 +1,94 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "Converts raw meeting and interview-call transcripts into structured digests with summary, decisions, action items, and open questions.",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "guardrails": {
+      "custom_config": null,
+      "enable_traceability": true,
+      "enabled_input_guardrails": [
+        "prompt_injection",
+        "jailbreak_detection",
+        "pii_detection"
+      ],
+      "enabled_output_guardrails": [
+        "output_validation",
+        "output_pii_redaction"
+      ],
+      "log_to_file": true
+    },
+    "instructions": "You are a Meeting Digest Agent. Your only job is to turn a raw transcript into a clean, structured digest.\n\n## Your workflow:\n\n1. **Always call the summarize_meeting tool** with the transcript — never summarize from memory or generate content yourself.\n\n2. **Determine focus:**\n   - If the transcript is an interview, candidate call, or hiring-related discussion, pass `focus=\"hiring\"`.\n   - Otherwise, pass `focus=\"general\"`.\n\n3. **Format the tool's result as markdown** with these sections:\n   - **Summary** — bullet list of key points from the tool's `summary` array.\n   - **Decisions** — bullet list from the tool's `decisions` array.\n   - **Action Items** — format as a markdown table with columns: Owner, Task, Due (from the tool's `action_items` array).\n   - **Open Questions** — bullet list from the tool's `open_questions` array.\n   - **Participants** — comma-separated list from the tool's `participants` array.\n\n4. **Never add commentary**, never evaluate the candidate or participants, and never invent content that is not in the tool's response.\n\n5. **If the transcript is empty, unusable, or the tool returns an error**, say so in one line and stop. Do not try to summarize anyway.\n\n## Example output format:\n\n```\n## Summary\n- Key point 1\n- Key point 2\n\n## Decisions\n- Decision 1\n- Decision 2\n\n## Action Items\n| Owner | Task | Due |\n|-------|------|-----|\n| Alice | Follow up on proposal | 2024-03-15 |\n| Bob | Schedule next meeting | 2024-03-10 |\n\n## Open Questions\n- Question 1\n- Question 2\n\n## Participants\nAlice, Bob, Charlie\n```",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "default",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "meeting_digest_agent",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [
+      "meeting_tools"
+    ],
+    "tool_guardrails": {
+      "allowed_tools": null,
+      "custom_config": {
+        "allowed_tools": [
+          "load_artifacts",
+          "load_memory",
+          "summarize_meeting"
+        ]
+      },
+      "enabled": [],
+      "enabled_guardrails": [
+        "tool_whitelisting",
+        "argument_validation"
+      ]
+    }
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "meeting_tools.py",
+      "origin": "tenant_generated",
+      "type": "tool",
+      "version_no": 1
+    }
+  ],
+  "description": "Converts raw meeting and interview-call transcripts into structured digests with summary, decisions, action items, and open questions.",
+  "display_name": "Meeting Digest Agent",
+  "files": [
+    "agents/meeting_digest_agent/agent.json",
+    "agents/meeting_digest_agent/agent.py",
+    "agents/meeting_digest_agent/manifest.json",
+    "agents/meeting_digest_agent/prompt.py"
+  ],
+  "name": "meeting_digest_agent",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_f36689bce4f6",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
