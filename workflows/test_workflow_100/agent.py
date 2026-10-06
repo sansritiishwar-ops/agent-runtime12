@@ -26,6 +26,6 @@ critic_agent = _mod_agents_critic_agent.root_agent
 
 root_agent = SequentialAgent(
     name="test_workflow_100",
-    description="""write using the writer agent""",
+    description="""write using the writer agent and using the critic agent as well in sequential flow""",
     sub_agents=[writer_agent, critic_agent],
 )
