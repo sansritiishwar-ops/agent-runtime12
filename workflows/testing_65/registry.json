@@ -1,21 +1,28 @@
 {
   "artifact_type": "workflow",
-  "change_type": "create",
+  "change_type": "edit",
   "config": {
     "connections": [
       {
-        "id": "edge-agent-1791297483016-end-1791297492552-1791297504157",
-        "route_key": null,
-        "source": "agent-1791297483016",
-        "state_injections": [],
-        "target": "end-1791297492552"
-      },
-      {
-        "id": "edge-start-agent-1791297556685-1791297559795",
+        "id": "edge-start-agent-1791297640460-1791297657720",
         "route_key": null,
         "source": "start",
         "state_injections": [],
-        "target": "agent-1791297556685"
+        "target": "agent-1791297640460"
+      },
+      {
+        "id": "edge-agent-1791297640460-agent-1791297646467-1791297664819",
+        "route_key": null,
+        "source": "agent-1791297640460",
+        "state_injections": [],
+        "target": "agent-1791297646467"
+      },
+      {
+        "id": "edge-agent-1791297646467-end-1791297492552-1791297669011",
+        "route_key": null,
+        "source": "agent-1791297646467",
+        "state_injections": [],
+        "target": "end-1791297492552"
       }
     ],
     "description": "",
@@ -40,24 +47,6 @@
         "type": "start"
       },
       {
-        "agent_name": "ai_infrastructure_deployment_agent",
-        "id": "agent-1791297483016",
-        "input_schema_fields": null,
-        "input_schema_name": null,
-        "instruction": "Deploys AI infrastructure with proper configuration and security policies",
-        "is_library_agent": true,
-        "max_revision_cycles": 2,
-        "model": null,
-        "name": "ai_infrastructure_deployment_agent",
-        "output_schema_fields": null,
-        "output_schema_name": null,
-        "position": {
-          "x": 107.90191987894968,
-          "y": 400.6696103018986
-        },
-        "type": "agent"
-      },
-      {
         "agent_name": "End Node",
         "id": "end-1791297492552",
         "input_schema_fields": null,
@@ -76,35 +65,58 @@
         "type": "end"
       },
       {
-        "agent_name": "hc_decision_triage_agent",
-        "id": "agent-1791297556685",
+        "agent_name": "writer_agent",
+        "id": "agent-1791297640460",
         "input_schema_fields": null,
         "input_schema_name": null,
-        "instruction": "\nYou are hc_decision_triage_agent, specialized in analyzing clinical/healthcare\nsecurity incidents and generating actionable containment plans that account for\npatient data (PHI) exposure risk.\n\n## Responsibilities\n- Read the investigation report, risk score, and affected clinical assets (EHR\n  servers, clinical workstations, medical device gateways, clinician accounts).\n- Determine which containment actions are necessary and safe to perform (e.g.,\n  host isolation, clinician/service account disablement, IP blocking, or token\n  revocation), while being mindful that isolating clinical systems can affect\n  patient care — call this out explicitly when relevant.\n- Format the response plan in a clear, structured list detailing the target\n  assets and why each action is recommended.\n- DO NOT execute any containment tools yourself. Only recommend the plan for\n  human approval.\n\n## Style\n- Be concise, technical, and professional.\n- List all recommended actions with clear justifications, flagging any action\n  that could disrupt clinical operations.\n",
+        "instruction": "\nYou are an expert Writer Agent responsible for generating and refining documents on various topics.\n\nContext Handling:\n- The shared conversation may contain a topic, initial draft, or feedback from previous iterations.\n- Read the conversation history to understand the current state of the document.\n- If this is the first iteration, generate an initial draft based on the topic provided.\n- If this is a subsequent iteration, refine the existing draft based on feedback from the Critic Agent.\n\nWriting Guidelines:\n- Generate clear, well-structured, and comprehensive content.\n- Organize information logically with proper headings, sections, and paragraphs.\n- Use appropriate tone and style for the target audience.\n- Ensure factual accuracy and coherence throughout the document.\n- Include relevant examples, explanations, and supporting details when appropriate.\n- Maintain consistency in terminology and formatting.\n\nRefinement Guidelines:\n- When refining based on feedback, address all specific points raised by the Critic Agent.\n- Improve clarity, flow, and organization as suggested.\n- Enhance content quality while preserving the original intent and key information.\n- Make incremental improvements rather than complete rewrites unless explicitly requested.\n- Ensure the refined version addresses the weaknesses identified in the critique.\n\nResponse Format:\n- Return the complete document (initial draft or refined version) in a clear, readable format.\n- Use markdown formatting for structure (headings, lists, emphasis, etc.).\n- If the document is long, ensure it's well-organized with clear sections.\n- Include a brief summary at the beginning if the document is extensive.\n\nTone:\n- Professional yet accessible.\n- Clear and concise.\n- Engaging and informative.\n- Appropriate for the intended audience.\n",
         "is_library_agent": true,
         "max_revision_cycles": 2,
-        "model": null,
-        "name": "hc_decision_triage_agent",
+        "model": "gemini-2.5-flash",
+        "name": "writer_agent",
         "output_schema_fields": null,
         "output_schema_name": null,
         "position": {
-          "x": -71.47757500101615,
-          "y": 270.49570088954323
+          "x": -60.41479279892706,
+          "y": 282.55287543919
+        },
+        "type": "agent"
+      },
+      {
+        "agent_name": "critic_agent",
+        "id": "agent-1791297646467",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "\nYou are an expert Critic Agent responsible for evaluating and critiquing documents to identify areas for improvement.\n\nContext Handling:\n- The shared conversation contains the latest document draft produced by the Writer Agent.\n- Read the most recent document in the shared context.\n- Assume the user wants you to critique that document unless explicitly told otherwise.\n\nCritique Guidelines:\n- Assess clarity, structure, organization, and coherence.\n- Evaluate content quality, accuracy, and completeness.\n- Identify areas where the document could be improved.\n- Check for logical flow, transitions, and readability.\n- Assess whether the document meets its stated purpose and audience needs.\n- Look for gaps in information, unclear explanations, or missing context.\n- Evaluate formatting, style consistency, and presentation.\n\nResponse Format:\n- Output concise, actionable feedback starting with \"-\".\n- Prioritize the most impactful findings first.\n- Be specific about what needs improvement and why.\n- Suggest concrete improvements that can be actioned by the Writer Agent.\n- If the document is acceptable without changes, reply with \"No major issues found. The document is well-structured and clear.\"\n- Keep the response self-contained; do not assume the next agent has access to hidden state.\n\nAreas to Evaluate:\n1. **Structure and Organization**: Are sections logically ordered? Is the flow clear?\n2. **Clarity**: Is the language clear and accessible? Are concepts well-explained?\n3. **Completeness**: Is all necessary information included? Are there gaps?\n4. **Accuracy**: Are facts correct? Are claims well-supported?\n5. **Style and Tone**: Is the tone appropriate for the audience? Is style consistent?\n6. **Formatting**: Is the document well-formatted? Are headings, lists, and emphasis used effectively?\n\nTone and Style:\n- Be professional, constructive, and specific.\n- Reference specific sections, paragraphs, or concepts directly.\n- When pointing out problems, include the reasoning and, when possible, a high-level suggestion for improvement.\n- Balance criticism with recognition of strengths.\n",
+        "is_library_agent": true,
+        "max_revision_cycles": 2,
+        "model": "gemini-2.5-flash",
+        "name": "critic_agent",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": 127.34422233650287,
+          "y": 383.198473642416
         },
         "type": "agent"
       }
     ],
-    "tenant_agent_names": null,
+    "tenant_agent_names": [],
     "workflow_level_auth_required": false
   },
   "created_by": null,
   "dependencies": [
     {
-      "name": "hc_decision_triage_agent",
+      "name": "critic_agent",
       "origin": "platform",
       "type": "agent",
-      "upstream_content_hash": "86256fd7c3fe73b411830087791de9f5bd379aa3c2e80359e00fa3c18b25e1a3",
-      "upstream_version": "platform"
+      "version_no": 1
+    },
+    {
+      "name": "writer_agent",
+      "origin": "platform",
+      "type": "agent",
+      "version_no": 2
     }
   ],
   "description": "",
@@ -115,17 +127,17 @@
   ],
   "name": "testing_65",
   "origin": "tenant_generated",
-  "replaces_version_no": null,
+  "replaces_version_no": 1,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_80473cad7ed2",
-    "tier": 1
+    "decision_id": "risk_3d366d2077f0",
+    "tier": 2
   },
   "schema_version": 1,
   "secret_refs": [],
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.0",
-  "version_no": 1
+  "version": "1.0.1",
+  "version_no": 2
 }

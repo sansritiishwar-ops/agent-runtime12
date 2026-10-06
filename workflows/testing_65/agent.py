@@ -14,21 +14,21 @@ from dotenv import load_dotenv, find_dotenv
 from google.adk import Agent, Workflow, Event, Context
 import importlib.util as _ilu
 import pathlib as _pl
-_spec_agents_ai_infrastructure_deployment_agent = _ilu.spec_from_file_location(
-    'ai_infrastructure_deployment_agent',
-    _pl.Path(__file__).parent.parent.parent / 'agents' / 'ai_infrastructure_deployment_agent' / 'agent.py',
+_spec_agents_critic_agent = _ilu.spec_from_file_location(
+    'critic_agent',
+    _pl.Path(__file__).parent.parent.parent / 'agents' / 'critic_agent' / 'agent.py',
 )
-_mod_agents_ai_infrastructure_deployment_agent = _ilu.module_from_spec(_spec_agents_ai_infrastructure_deployment_agent)
-_spec_agents_ai_infrastructure_deployment_agent.loader.exec_module(_mod_agents_ai_infrastructure_deployment_agent)
-_spec_agents_hc_decision_triage_agent = _ilu.spec_from_file_location(
-    'hc_decision_triage_agent',
-    _pl.Path(__file__).parent.parent.parent / 'agents' / 'hc_decision_triage_agent' / 'agent.py',
+_mod_agents_critic_agent = _ilu.module_from_spec(_spec_agents_critic_agent)
+_spec_agents_critic_agent.loader.exec_module(_mod_agents_critic_agent)
+_spec_agents_writer_agent = _ilu.spec_from_file_location(
+    'writer_agent',
+    _pl.Path(__file__).parent.parent.parent / 'agents' / 'writer_agent' / 'agent.py',
 )
-_mod_agents_hc_decision_triage_agent = _ilu.module_from_spec(_spec_agents_hc_decision_triage_agent)
-_spec_agents_hc_decision_triage_agent.loader.exec_module(_mod_agents_hc_decision_triage_agent)
+_mod_agents_writer_agent = _ilu.module_from_spec(_spec_agents_writer_agent)
+_spec_agents_writer_agent.loader.exec_module(_mod_agents_writer_agent)
 
-ai_infrastructure_deployment_agent = _mod_agents_ai_infrastructure_deployment_agent.root_agent
-hc_decision_triage_agent = _mod_agents_hc_decision_triage_agent.root_agent
+critic_agent = _mod_agents_critic_agent.root_agent
+writer_agent = _mod_agents_writer_agent.root_agent
 from pydantic import BaseModel
 from typing import Any
 import os, re
@@ -72,7 +72,8 @@ load_dotenv(find_dotenv())
 root_agent = Workflow(
     name="testing_65",
     edges=[
-        ("START", hc_decision_triage_agent),
-        (ai_infrastructure_deployment_agent,),  # → END
+        ("START", writer_agent),
+        (writer_agent, critic_agent),
+        (critic_agent,),  # → END
     ]
 )
