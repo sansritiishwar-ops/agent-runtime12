@@ -1,0 +1,40 @@
+{
+  "name": "writer_agent",
+  "displayName": "Writer Agent",
+  "description": "Generates and refines documents on various topics, creating clear and well-structured content.",
+  "version": "1.0.0",
+  "url": "http://localhost:8001/a2a/writer_agent",
+  "authentication": { "type": "none" },
+  "capabilities": {
+    "streaming": true,
+    "functions": true,
+    "tool_generation": false
+  },
+  "defaultInputModes": ["text"],
+  "defaultOutputModes": ["text"],
+  "skills": [
+    {
+      "id": "document_generation",
+      "name": "Document Generation",
+      "description": "Generate initial drafts on any topic with clear structure and comprehensive content.",
+      "tags": ["writing", "content", "draft"],
+      "examples": [
+        "Generate a draft document on artificial intelligence",
+        "Create an initial version of a technical report",
+        "Write a first draft on climate change"
+      ]
+    },
+    {
+      "id": "document_refinement",
+      "name": "Document Refinement",
+      "description": "Refine existing documents based on feedback, improving clarity, structure, and quality.",
+      "tags": ["refinement", "editing", "improvement"],
+      "examples": [
+        "Refine a document based on critique feedback",
+        "Improve document clarity and organization",
+        "Enhance document quality based on suggestions"
+      ]
+    }
+  ]
+}
+

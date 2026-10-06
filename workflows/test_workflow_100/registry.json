@@ -1,0 +1,66 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "agent_names": [
+      "writer_agent",
+      "critic_agent"
+    ],
+    "agent_tool_names": null,
+    "description": "write using the writer agent",
+    "global_instruction": null,
+    "instructions": "write using the writer agent",
+    "loop_agents": null,
+    "loop_max_iterations": 5,
+    "model_settings": {
+      "max_tokens": 2048,
+      "name": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "test_workflow_100",
+    "parallel_merger_instructions": null,
+    "tags": null,
+    "workflow_level_auth_required": false,
+    "workflow_type": "sequential"
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "critic_agent",
+      "origin": "platform",
+      "type": "agent",
+      "upstream_content_hash": "f079b083ce643d93354d75da4d0128a030f92a7bdea886cb935ed5048a366278",
+      "upstream_version": "platform"
+    },
+    {
+      "name": "writer_agent",
+      "origin": "platform",
+      "type": "agent",
+      "upstream_content_hash": "ba796fe9e05d9511adf22fbe29b9e7264193144f84a6619a15a24c66e5bcb46b",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "write using the writer agent",
+  "display_name": "Test Workflow 100",
+  "files": [
+    "workflows/test_workflow_100/__init__.py",
+    "workflows/test_workflow_100/agent.py"
+  ],
+  "name": "test_workflow_100",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_131d2caf9f6d",
+    "tier": 3
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "human_approval",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
