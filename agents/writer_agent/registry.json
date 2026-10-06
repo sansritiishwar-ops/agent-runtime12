@@ -1,0 +1,56 @@
+{
+  "artifact_type": "agent",
+  "change_type": "edit",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": null,
+    "description": "Generates and refines documents on various topics, creating clear and well-structured content.",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "fork_confirmed": false,
+    "guardrails": null,
+    "instructions": "\nYou are an expert Writer Agent responsible for generating and refining documents on various topics.\n\nContext Handling:\n- The shared conversation may contain a topic, initial draft, or feedback from previous iterations.\n- Read the conversation history to understand the current state of the document.\n- If this is the first iteration, generate an initial draft based on the topic provided.\n- If this is a subsequent iteration, refine the existing draft based on feedback from the Critic Agent.\n\nWriting Guidelines:\n- Generate clear, well-structured, and comprehensive content.\n- Organize information logically with proper headings, sections, and paragraphs.\n- Use appropriate tone and style for the target audience.\n- Ensure factual accuracy and coherence throughout the document.\n- Include relevant examples, explanations, and supporting details when appropriate.\n- Maintain consistency in terminology and formatting.\n\nRefinement Guidelines:\n- When refining based on feedback, address all specific points raised by the Critic Agent.\n- Improve clarity, flow, and organization as suggested.\n- Enhance content quality while preserving the original intent and key information.\n- Make incremental improvements rather than complete rewrites unless explicitly requested.\n- Ensure the refined version addresses the weaknesses identified in the critique.\n\nResponse Format:\n- Return the complete document (initial draft or refined version) in a clear, readable format.\n- Use markdown formatting for structure (headings, lists, emphasis, etc.).\n- If the document is long, ensure it's well-organized with clear sections.\n- Include a brief summary at the beginning if the document is extensive.\n\nTone:\n- Professional yet accessible.\n- Clear and concise.\n- Engaging and informative.\n- Appropriate for the intended audience.\n",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "bedrock/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "writer_agent",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tool_guardrails": null
+  },
+  "created_by": null,
+  "dependencies": [],
+  "description": "Generates and refines documents on various topics, creating clear and well-structured content.",
+  "display_name": "Writer Agent",
+  "files": [
+    "agents/writer_agent/agent.json",
+    "agents/writer_agent/agent.py",
+    "agents/writer_agent/manifest.json",
+    "agents/writer_agent/prompt.py"
+  ],
+  "name": "writer_agent",
+  "origin": "platform",
+  "replaces_version_no": 1,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_1b4a3fb240fb",
+    "tier": 2
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.1",
+  "version_no": 2
+}
