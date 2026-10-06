@@ -1,6 +1,6 @@
 {
   "artifact_type": "workflow",
-  "change_type": "create",
+  "change_type": "edit",
   "config": {
     "agent_names": [
       "customer_support_agent"
@@ -13,7 +13,7 @@
     "loop_max_iterations": 5,
     "model_settings": {
       "max_tokens": 2048,
-      "name": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "name": "gemini-2.5-pro",
       "temperature": 0.7,
       "top_k": null,
       "top_p": null
@@ -26,7 +26,7 @@
       "workflow"
     ],
     "workflow_level_auth_required": false,
-    "workflow_type": "orchestration"
+    "workflow_type": "sequential"
   },
   "created_by": null,
   "dependencies": [
@@ -34,8 +34,7 @@
       "name": "customer_support_agent",
       "origin": "platform",
       "type": "agent",
-      "upstream_content_hash": "523c6fa100cde254d43529d0881884ad9951f016f856e628b97c74aaffe7d622",
-      "upstream_version": "platform"
+      "version_no": 1
     }
   ],
   "description": "Orchestrator workflow that delegates customer support tasks to specialized sub-agents.",
@@ -46,21 +45,21 @@
   ],
   "name": "customer_support_workflow",
   "origin": "tenant_generated",
-  "replaces_version_no": null,
+  "replaces_version_no": 1,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_eae530324333",
-    "tier": 2
+    "decision_id": "risk_a70cdd9208e0",
+    "tier": 3
   },
   "schema_version": 1,
   "secret_refs": [],
-  "source": "internal_ui",
+  "source": "human_approval",
   "source_type": "generated",
   "tags": [
     "customer_support",
     "orchestration",
     "workflow"
   ],
-  "version": "1.0.0",
-  "version_no": 1
+  "version": "1.0.1",
+  "version_no": 2
 }
