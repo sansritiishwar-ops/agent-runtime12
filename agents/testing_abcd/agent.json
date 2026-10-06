@@ -11,5 +11,28 @@
   ],
   "defaultOutputModes": [
     "text/plain"
-  ]
+  ],
+  "guardrails": {
+    "input": [
+      "input_validation",
+      "prompt_injection"
+    ],
+    "output": [
+      "output_validation",
+      "content_moderation"
+    ],
+    "tool": {
+      "enabled": [
+        "tool_blacklisting",
+        "tool_whitelisting"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "load_memory",
+          "load_artifacts"
+        ]
+      }
+    },
+    "traceability": true
+  }
 }
