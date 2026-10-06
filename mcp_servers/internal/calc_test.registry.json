@@ -1,18 +1,26 @@
 {
   "artifact_type": "mcp",
-  "change_type": "create",
+  "change_type": "edit",
   "config": {
-    "description": null,
+    "description": "Internal FastMCP (stdio) server with 4 tools",
     "server_name": "calc_test",
     "tools": [
       "add",
       "multiply",
       "subtract",
-      "divide"
+      "divide",
+      "add_integers"
     ]
   },
   "created_by": null,
   "dependencies": [
+    {
+      "name": "p_calculator_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "7c124abfe565f10c7f538ea1403d0d79afa29836518a2676c6a9e6193019a618",
+      "upstream_version": "platform"
+    },
     {
       "name": "pp_calculator_tools.py",
       "origin": "platform",
@@ -21,7 +29,7 @@
       "upstream_version": "platform"
     }
   ],
-  "description": "",
+  "description": "Internal FastMCP (stdio) server with 4 tools",
   "display_name": "Calc Test",
   "files": [
     "mcp_servers/internal/calc_test.py",
@@ -29,17 +37,17 @@
   ],
   "name": "calc_test.py",
   "origin": "tenant_generated",
-  "replaces_version_no": null,
+  "replaces_version_no": 1,
   "restored_from_version_no": null,
   "risk": {
-    "decision_id": "risk_d0669188a0c8",
-    "tier": 1
+    "decision_id": "risk_933b784ae9a8",
+    "tier": 2
   },
   "schema_version": 1,
   "secret_refs": [],
   "source": "internal_ui",
   "source_type": "generated",
   "tags": [],
-  "version": "1.0.0",
-  "version_no": 1
+  "version": "1.0.1",
+  "version_no": 2
 }

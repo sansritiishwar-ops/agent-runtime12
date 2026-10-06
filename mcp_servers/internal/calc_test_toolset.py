@@ -11,6 +11,12 @@ from typing import Any, Dict, List, Optional
 
 import importlib.util as _ilu
 import pathlib as _pl
+_spec_tools_p_calculator_tools = _ilu.spec_from_file_location(
+    'p_calculator_tools',
+    _pl.Path(__file__).parent.parent.parent / 'tools' / 'p_calculator_tools.py',
+)
+_mod_tools_p_calculator_tools = _ilu.module_from_spec(_spec_tools_p_calculator_tools)
+_spec_tools_p_calculator_tools.loader.exec_module(_mod_tools_p_calculator_tools)
 _spec_tools_pp_calculator_tools = _ilu.spec_from_file_location(
     'pp_calculator_tools',
     _pl.Path(__file__).parent.parent.parent / 'tools' / 'pp_calculator_tools.py',
@@ -22,6 +28,7 @@ tool_add = _mod_tools_pp_calculator_tools.add
 tool_divide = _mod_tools_pp_calculator_tools.divide
 tool_multiply = _mod_tools_pp_calculator_tools.multiply
 tool_subtract = _mod_tools_pp_calculator_tools.subtract
+tool_add_integers = _mod_tools_p_calculator_tools.add_integers
 
 mcp = FastMCP("calc_test")
 
@@ -60,6 +67,15 @@ async def subtract(num1: float, num2: float) -> Dict[str, Any]:
     Calls the `subtract` tool from the `pp_calculator_tools` tool module.
     """
     return tool_subtract(num1=num1, num2=num2)
+
+
+@mcp.tool()
+async def add_integers(num1: int, num2: int) -> Dict[str, Any]:
+    """
+    Auto-generated MCP tool wrapper for `add_integers`.
+    Calls the `add_integers` tool from the `p_calculator_tools` tool module.
+    """
+    return tool_add_integers(num1=num1, num2=num2)
 
 
 if __name__ == "__main__":
