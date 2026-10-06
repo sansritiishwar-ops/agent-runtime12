@@ -1,0 +1,111 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "connections": [
+      {
+        "id": "edge-start-agent-1791280970052-1791280974428",
+        "route_key": null,
+        "source": "start",
+        "state_injections": [],
+        "target": "agent-1791280970052"
+      },
+      {
+        "id": "edge-agent-1791280970052-end-1791280983313-1791280985224",
+        "route_key": null,
+        "source": "agent-1791280970052",
+        "state_injections": [],
+        "target": "end-1791280983313"
+      }
+    ],
+    "description": "",
+    "name": "writer_graph_workflow",
+    "nodes": [
+      {
+        "agent_name": "Start",
+        "id": "start",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "",
+        "is_library_agent": false,
+        "max_revision_cycles": 2,
+        "model": null,
+        "name": "Start",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": -76.5,
+          "y": 226.5
+        },
+        "type": "start"
+      },
+      {
+        "agent_name": "writer_agent",
+        "id": "agent-1791280970052",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "\nYou are an expert Writer Agent responsible for generating and refining documents on various topics.\n\nContext Handling:\n- The shared conversation may contain a topic, initial draft, or feedback from previous iterations.\n- Read the conversation history to understand the current state of the document.\n- If this is the first iteration, generate an initial draft based on the topic provided.\n- If this is a subsequent iteration, refine the existing draft based on feedback from the Critic Agent.\n\nWriting Guidelines:\n- Generate clear, well-structured, and comprehensive content.\n- Organize information logically with proper headings, sections, and paragraphs.\n- Use appropriate tone and style for the target audience.\n- Ensure factual accuracy and coherence throughout the document.\n- Include relevant examples, explanations, and supporting details when appropriate.\n- Maintain consistency in terminology and formatting.\n\nRefinement Guidelines:\n- When refining based on feedback, address all specific points raised by the Critic Agent.\n- Improve clarity, flow, and organization as suggested.\n- Enhance content quality while preserving the original intent and key information.\n- Make incremental improvements rather than complete rewrites unless explicitly requested.\n- Ensure the refined version addresses the weaknesses identified in the critique.\n\nResponse Format:\n- Return the complete document (initial draft or refined version) in a clear, readable format.\n- Use markdown formatting for structure (headings, lists, emphasis, etc.).\n- If the document is long, ensure it's well-organized with clear sections.\n- Include a brief summary at the beginning if the document is extensive.\n\nTone:\n- Professional yet accessible.\n- Clear and concise.\n- Engaging and informative.\n- Appropriate for the intended audience.\n",
+        "is_library_agent": true,
+        "max_revision_cycles": 2,
+        "model": "gemini-2.5-flash",
+        "name": "writer_agent",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": 47,
+          "y": 231.046875
+        },
+        "type": "agent"
+      },
+      {
+        "agent_name": "End Node",
+        "id": "end-1791280983313",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "",
+        "is_library_agent": false,
+        "max_revision_cycles": 2,
+        "model": null,
+        "name": "End Node",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": 370,
+          "y": 268.046875
+        },
+        "type": "end"
+      }
+    ],
+    "workflow_level_auth_required": false
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "writer_agent",
+      "origin": "platform",
+      "type": "agent",
+      "version_no": 1
+    }
+  ],
+  "description": "",
+  "display_name": "Writer Graph Workflow",
+  "files": [
+    "workflows/writer_graph_workflow/__init__.py",
+    "workflows/writer_graph_workflow/agent.py"
+  ],
+  "name": "writer_graph_workflow",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_66f938067fe4",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
