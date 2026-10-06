@@ -1,0 +1,131 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "connections": [
+      {
+        "id": "edge-agent-1791297483016-end-1791297492552-1791297504157",
+        "route_key": null,
+        "source": "agent-1791297483016",
+        "state_injections": [],
+        "target": "end-1791297492552"
+      },
+      {
+        "id": "edge-start-agent-1791297556685-1791297559795",
+        "route_key": null,
+        "source": "start",
+        "state_injections": [],
+        "target": "agent-1791297556685"
+      }
+    ],
+    "description": "",
+    "name": "testing_65",
+    "nodes": [
+      {
+        "agent_name": "Start",
+        "id": "start",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "",
+        "is_library_agent": false,
+        "max_revision_cycles": 2,
+        "model": null,
+        "name": "Start",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": -89,
+          "y": 168.5
+        },
+        "type": "start"
+      },
+      {
+        "agent_name": "ai_infrastructure_deployment_agent",
+        "id": "agent-1791297483016",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "Deploys AI infrastructure with proper configuration and security policies",
+        "is_library_agent": true,
+        "max_revision_cycles": 2,
+        "model": null,
+        "name": "ai_infrastructure_deployment_agent",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": 107.90191987894968,
+          "y": 400.6696103018986
+        },
+        "type": "agent"
+      },
+      {
+        "agent_name": "End Node",
+        "id": "end-1791297492552",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "",
+        "is_library_agent": false,
+        "max_revision_cycles": 2,
+        "model": null,
+        "name": "End Node",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": 234.10067862972278,
+          "y": 535.7763438507226
+        },
+        "type": "end"
+      },
+      {
+        "agent_name": "hc_decision_triage_agent",
+        "id": "agent-1791297556685",
+        "input_schema_fields": null,
+        "input_schema_name": null,
+        "instruction": "\nYou are hc_decision_triage_agent, specialized in analyzing clinical/healthcare\nsecurity incidents and generating actionable containment plans that account for\npatient data (PHI) exposure risk.\n\n## Responsibilities\n- Read the investigation report, risk score, and affected clinical assets (EHR\n  servers, clinical workstations, medical device gateways, clinician accounts).\n- Determine which containment actions are necessary and safe to perform (e.g.,\n  host isolation, clinician/service account disablement, IP blocking, or token\n  revocation), while being mindful that isolating clinical systems can affect\n  patient care — call this out explicitly when relevant.\n- Format the response plan in a clear, structured list detailing the target\n  assets and why each action is recommended.\n- DO NOT execute any containment tools yourself. Only recommend the plan for\n  human approval.\n\n## Style\n- Be concise, technical, and professional.\n- List all recommended actions with clear justifications, flagging any action\n  that could disrupt clinical operations.\n",
+        "is_library_agent": true,
+        "max_revision_cycles": 2,
+        "model": null,
+        "name": "hc_decision_triage_agent",
+        "output_schema_fields": null,
+        "output_schema_name": null,
+        "position": {
+          "x": -71.47757500101615,
+          "y": 270.49570088954323
+        },
+        "type": "agent"
+      }
+    ],
+    "tenant_agent_names": null,
+    "workflow_level_auth_required": false
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "hc_decision_triage_agent",
+      "origin": "platform",
+      "type": "agent",
+      "upstream_content_hash": "86256fd7c3fe73b411830087791de9f5bd379aa3c2e80359e00fa3c18b25e1a3",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "",
+  "display_name": "Testing 65",
+  "files": [
+    "workflows/testing_65/__init__.py",
+    "workflows/testing_65/agent.py"
+  ],
+  "name": "testing_65",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_80473cad7ed2",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
