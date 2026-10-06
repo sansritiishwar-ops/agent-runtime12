@@ -1,0 +1,40 @@
+{
+  "name": "blog_updates_agent",
+  "displayName": "Blog Updates Agent",
+  "description": "Researches and creates well-formatted, summarized blog posts on user-specified topics",
+  "url": "http://localhost:8001/a2a/blog_updates_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "content_policy"
+    ],
+    "output": [
+      "output_validation",
+      "output_pii_redaction",
+      "content_moderation"
+    ],
+    "tool": {
+      "enabled": [
+        "argument_validation",
+        "tool_whitelisting"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "load_artifacts",
+          "load_memory",
+          "write_formatted_blog"
+        ]
+      }
+    },
+    "traceability": true
+  }
+}
