@@ -1,0 +1,66 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "agent_names": [
+      "customer_support_agent"
+    ],
+    "agent_tool_names": null,
+    "description": "Orchestrator workflow that delegates customer support tasks to specialized sub-agents.",
+    "global_instruction": "You are an orchestrator that coordinates sub-agents and delegates tasks appropriately.",
+    "instructions": "You are an orchestrator that coordinates sub-agents and delegates tasks appropriately.",
+    "loop_agents": null,
+    "loop_max_iterations": 5,
+    "model_settings": {
+      "max_tokens": 2048,
+      "name": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "customer_support_workflow",
+    "parallel_merger_instructions": null,
+    "tags": [
+      "customer_support",
+      "orchestration",
+      "workflow"
+    ],
+    "workflow_level_auth_required": false,
+    "workflow_type": "orchestration"
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "customer_support_agent",
+      "origin": "platform",
+      "type": "agent",
+      "upstream_content_hash": "523c6fa100cde254d43529d0881884ad9951f016f856e628b97c74aaffe7d622",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "Orchestrator workflow that delegates customer support tasks to specialized sub-agents.",
+  "display_name": "Customer Support Workflow",
+  "files": [
+    "workflows/customer_support_workflow/__init__.py",
+    "workflows/customer_support_workflow/agent.py"
+  ],
+  "name": "customer_support_workflow",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_eae530324333",
+    "tier": 2
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [
+    "customer_support",
+    "orchestration",
+    "workflow"
+  ],
+  "version": "1.0.0",
+  "version_no": 1
+}
