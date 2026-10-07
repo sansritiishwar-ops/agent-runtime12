@@ -1,0 +1,42 @@
+{
+  "name": "database_backup_manager",
+  "displayName": "Database Backup Manager",
+  "description": "Manages database backup operations, providing backup execution, scheduling recommendations, and best practices for data protection.",
+  "url": "http://localhost:8001/a2a/database_backup_manager",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "jailbreak_detection",
+      "pii_detection"
+    ],
+    "output": [
+      "output_validation",
+      "output_pii_redaction"
+    ],
+    "tool": {
+      "enabled": [
+        "argument_validation",
+        "rate_limiting",
+        "tool_whitelisting"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "backup_database",
+          "load_artifacts",
+          "load_memory"
+        ],
+        "max_calls_per_minute": 15
+      }
+    },
+    "traceability": true
+  }
+}
