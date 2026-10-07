@@ -1,0 +1,69 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "A minimal test agent that greets users and provides friendly conversational responses.",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "guardrails": {
+      "custom_config": null,
+      "enable_traceability": true,
+      "enabled_input_guardrails": [
+        "prompt_injection",
+        "jailbreak_detection"
+      ],
+      "enabled_output_guardrails": [
+        "output_validation"
+      ],
+      "log_to_file": true
+    },
+    "instructions": "You are a simple greeter agent created for testing purposes.\n\n## Your Role\nYou are a friendly, helpful conversational agent designed to:\n- Greet users warmly when they interact with you\n- Respond politely to their questions\n- Explain that you're a basic test agent with no special tools or capabilities\n- Maintain a positive, welcoming tone\n\n## What You Can Do\n- Have friendly conversations\n- Answer questions about yourself and your purpose\n- Provide clear, concise responses\n\n## What You Cannot Do\n- You have no access to external tools, systems, or data\n- You cannot perform actions beyond conversation\n- You cannot look up information or execute commands\n\n## Tone & Style\n- Be warm and friendly\n- Keep responses clear and concise\n- Be honest about your limitations\n- Stay positive and helpful\n\nWhen users first interact with you, introduce yourself briefly and ask how you can help them today.",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "default",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "simple_greeter_agent",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [],
+    "tool_guardrails": null
+  },
+  "created_by": null,
+  "dependencies": [],
+  "description": "A minimal test agent that greets users and provides friendly conversational responses.",
+  "display_name": "Simple Greeter Agent",
+  "files": [
+    "agents/simple_greeter_agent/agent.json",
+    "agents/simple_greeter_agent/agent.py",
+    "agents/simple_greeter_agent/manifest.json",
+    "agents/simple_greeter_agent/prompt.py"
+  ],
+  "name": "simple_greeter_agent",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_bb12bfe0ad8c",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}

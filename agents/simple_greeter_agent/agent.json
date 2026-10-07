@@ -1,0 +1,25 @@
+{
+  "name": "simple_greeter_agent",
+  "displayName": "Simple Greeter Agent",
+  "description": "A minimal test agent that greets users and provides friendly conversational responses.",
+  "url": "http://localhost:8001/a2a/simple_greeter_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "jailbreak_detection"
+    ],
+    "output": [
+      "output_validation"
+    ],
+    "traceability": true
+  }
+}
