@@ -1,0 +1,42 @@
+{
+  "name": "data_processing_agent",
+  "displayName": "Data Processing Agent",
+  "description": "Processes external data requests and prepares information for downstream actions.",
+  "url": "http://localhost:8001/a2a/data_processing_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "jailbreak_detection",
+      "pii_detection"
+    ],
+    "output": [
+      "output_pii_redaction",
+      "output_validation"
+    ],
+    "tool": {
+      "enabled": [
+        "argument_validation",
+        "rate_limiting",
+        "tool_whitelisting"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "load_artifacts",
+          "load_memory",
+          "process_external_data"
+        ],
+        "max_calls_per_minute": 10
+      }
+    },
+    "traceability": true
+  }
+}

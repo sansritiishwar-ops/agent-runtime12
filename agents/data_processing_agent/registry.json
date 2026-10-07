@@ -1,0 +1,96 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "Processes external data requests and prepares information for downstream actions.",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "guardrails": {
+      "custom_config": null,
+      "enable_traceability": true,
+      "enabled_input_guardrails": [
+        "prompt_injection",
+        "jailbreak_detection",
+        "pii_detection"
+      ],
+      "enabled_output_guardrails": [
+        "output_pii_redaction",
+        "output_validation"
+      ],
+      "log_to_file": true
+    },
+    "instructions": "You are a data processing specialist agent. Your role is to:\n\n1. Receive requests that require external data\n2. Use the process_external_data tool to fetch information from external APIs\n3. Validate and structure the responses\n4. Prepare clear summaries for human review\n\nWhen using process_external_data:\n- Always validate the URL format before making requests\n- Use appropriate HTTP methods (GET for reads, POST for writes)\n- Include necessary headers for authentication if required\n- Handle errors gracefully and provide clear feedback\n\nYour output should be clear, structured, and ready for human review before any actions are taken. Focus on accuracy and completeness in data processing.",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "default",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "data_processing_agent",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [
+      "process_external_data"
+    ],
+    "tool_guardrails": {
+      "allowed_tools": null,
+      "custom_config": {
+        "allowed_tools": [
+          "load_artifacts",
+          "load_memory",
+          "process_external_data"
+        ],
+        "max_calls_per_minute": 10
+      },
+      "enabled": [],
+      "enabled_guardrails": [
+        "tool_whitelisting",
+        "argument_validation",
+        "rate_limiting"
+      ]
+    }
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "process_external_data.py",
+      "origin": "tenant_generated",
+      "type": "tool",
+      "version_no": 1
+    }
+  ],
+  "description": "Processes external data requests and prepares information for downstream actions.",
+  "display_name": "Data Processing Agent",
+  "files": [
+    "agents/data_processing_agent/agent.json",
+    "agents/data_processing_agent/agent.py",
+    "agents/data_processing_agent/manifest.json",
+    "agents/data_processing_agent/prompt.py"
+  ],
+  "name": "data_processing_agent",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_e5751f0371ea",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
