@@ -1,0 +1,132 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "connections": [
+      {
+        "id": "",
+        "route_key": null,
+        "source": "start",
+        "state_injections": [],
+        "target": "data_processor"
+      },
+      {
+        "id": "",
+        "route_key": null,
+        "source": "data_processor",
+        "state_injections": [],
+        "target": "human_review"
+      },
+      {
+        "id": "",
+        "route_key": "approved",
+        "source": "human_review",
+        "state_injections": [],
+        "target": "action_agent"
+      },
+      {
+        "id": "",
+        "route_key": "revise",
+        "source": "human_review",
+        "state_injections": [],
+        "target": "data_processor"
+      },
+      {
+        "id": "",
+        "route_key": null,
+        "source": "action_agent",
+        "state_injections": [],
+        "target": "end"
+      }
+    ],
+    "description": "High-risk test workflow with external data processing, human review gate, and action execution for testing Tier 3 risk evaluation.",
+    "name": "high_risk_test_workflow",
+    "nodes": [
+      {
+        "id": "start",
+        "position": {
+          "x": 80.0,
+          "y": 40.0
+        },
+        "type": "start"
+      },
+      {
+        "agent_name": "data_processing_agent",
+        "id": "data_processor",
+        "is_library_agent": true,
+        "name": "Data Processor",
+        "position": {
+          "x": 340.0,
+          "y": 40.0
+        },
+        "type": "agent"
+      },
+      {
+        "id": "human_review",
+        "max_revision_cycles": 3,
+        "message": "Please review the processed data before proceeding with actions.",
+        "name": "Human Review Gate",
+        "position": {
+          "x": 600.0,
+          "y": 40.0
+        },
+        "revise_agent": "data_processor",
+        "type": "hitl"
+      },
+      {
+        "agent_name": "action_agent",
+        "id": "action_agent",
+        "instruction": "You are an action execution agent. Your role is to take the approved data from the review process and execute the final actions. Be precise and confirm what actions you are taking based on the approved input.",
+        "is_library_agent": false,
+        "name": "Action Agent",
+        "position": {
+          "x": 860.0,
+          "y": 40.0
+        },
+        "type": "agent"
+      },
+      {
+        "id": "end",
+        "position": {
+          "x": 1120.0,
+          "y": 40.0
+        },
+        "type": "end"
+      }
+    ],
+    "tenant_agent_names": [
+      "data_processing_agent"
+    ],
+    "workflow_level_auth_required": false
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "data_processing_agent",
+      "origin": "tenant_generated",
+      "type": "agent",
+      "version_no": 1
+    }
+  ],
+  "description": "High-risk test workflow with external data processing, human review gate, and action execution for testing Tier 3 risk evaluation.",
+  "display_name": "High Risk Test Workflow",
+  "files": [
+    "workflows/high_risk_test_workflow/__init__.py",
+    "workflows/high_risk_test_workflow/agent.py"
+  ],
+  "name": "high_risk_test_workflow",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_ffea8388dae1",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
