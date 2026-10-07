@@ -1,0 +1,79 @@
+{
+  "artifact_type": "workflow",
+  "change_type": "create",
+  "config": {
+    "connections": [
+      {
+        "id": "",
+        "route_key": null,
+        "source": "start",
+        "state_injections": [],
+        "target": "test_agent"
+      },
+      {
+        "id": "",
+        "route_key": null,
+        "source": "test_agent",
+        "state_injections": [],
+        "target": "end"
+      }
+    ],
+    "description": "A minimal test workflow for testing agent creation and risk evaluation.",
+    "name": "simple_test_workflow",
+    "nodes": [
+      {
+        "id": "start",
+        "position": {
+          "x": 80.0,
+          "y": 40.0
+        },
+        "type": "start"
+      },
+      {
+        "agent_name": "test_agent",
+        "id": "test_agent",
+        "instruction": "You are a simple test agent. Your role is to acknowledge any input you receive and provide a brief, friendly response. Simply confirm that you've received the input and echo back a summary of what was provided to you.",
+        "is_library_agent": false,
+        "name": "Test Agent",
+        "position": {
+          "x": 340.0,
+          "y": 40.0
+        },
+        "type": "agent"
+      },
+      {
+        "id": "end",
+        "position": {
+          "x": 600.0,
+          "y": 40.0
+        },
+        "type": "end"
+      }
+    ],
+    "tenant_agent_names": [],
+    "workflow_level_auth_required": false
+  },
+  "created_by": null,
+  "dependencies": [],
+  "description": "A minimal test workflow for testing agent creation and risk evaluation.",
+  "display_name": "Simple Test Workflow",
+  "files": [
+    "workflows/simple_test_workflow/__init__.py",
+    "workflows/simple_test_workflow/agent.py"
+  ],
+  "name": "simple_test_workflow",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_d65b00eb3634",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
