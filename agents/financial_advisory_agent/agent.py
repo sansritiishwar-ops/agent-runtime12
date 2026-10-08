@@ -9,7 +9,29 @@ from google.genai import types
 
 from .prompt import SYSTEM_PROMPT, AGENT_DESCRIPTION
 
-# No MCP servers configured
+import importlib.util as _ilu
+import pathlib as _pl
+_spec_tools_process_payment_transaction = _ilu.spec_from_file_location(
+    'process_payment_transaction',
+    _pl.Path(__file__).parent.parent.parent / 'tools' / 'process_payment_transaction.py',
+)
+_mod_tools_process_payment_transaction = _ilu.module_from_spec(_spec_tools_process_payment_transaction)
+_spec_tools_process_payment_transaction.loader.exec_module(_mod_tools_process_payment_transaction)
+process_payment_transaction = _mod_tools_process_payment_transaction.process_payment_transaction
+_spec_tools_delete_customer_data = _ilu.spec_from_file_location(
+    'delete_customer_data',
+    _pl.Path(__file__).parent.parent.parent / 'tools' / 'delete_customer_data.py',
+)
+_mod_tools_delete_customer_data = _ilu.module_from_spec(_spec_tools_delete_customer_data)
+_spec_tools_delete_customer_data.loader.exec_module(_mod_tools_delete_customer_data)
+delete_customer_data = _mod_tools_delete_customer_data.delete_customer_data
+_spec_tools_access_pii_records = _ilu.spec_from_file_location(
+    'access_pii_records',
+    _pl.Path(__file__).parent.parent.parent / 'tools' / 'access_pii_records.py',
+)
+_mod_tools_access_pii_records = _ilu.module_from_spec(_spec_tools_access_pii_records)
+_spec_tools_access_pii_records.loader.exec_module(_mod_tools_access_pii_records)
+access_pii_records = _mod_tools_access_pii_records.access_pii_records
 
 
 
@@ -26,7 +48,9 @@ financial_advisory_agent = Agent(
     instruction=SYSTEM_PROMPT,
     tools=[
 
-
+        process_payment_transaction,
+        delete_customer_data,
+        access_pii_records,
     ],
     generate_content_config=types.GenerateContentConfig(
         temperature=0.7,

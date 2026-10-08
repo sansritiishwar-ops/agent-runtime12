@@ -1,7 +1,7 @@
 {
   "name": "financial_advisory_agent",
   "displayName": "Financial Advisory Agent",
-  "description": "Test agent for risk tier 3 classification - handles sensitive operations with comprehensive guardrails including PII detection, content moderation, compliance, and multi-level access controls.",
+  "description": "Risk Tier 3 agent handling payment transactions, data deletion, and PII access with comprehensive security guardrails including action confirmation, RBAC, and data access controls.",
   "url": "http://localhost:8001/a2a/financial_advisory_agent",
   "version": "1.0.0",
   "protocolVersion": "0.3",
@@ -26,6 +26,45 @@
       "quality_analysis",
       "compliance_disclaimers"
     ],
+    "tool": {
+      "enabled": [
+        "action_confirmation",
+        "argument_validation",
+        "data_access_control",
+        "rate_limiting",
+        "rbac",
+        "tool_whitelisting",
+        "write_permission_gating"
+      ],
+      "custom_config": {
+        "allowed_tools": [
+          "access_pii_records",
+          "delete_customer_data",
+          "load_artifacts",
+          "load_memory",
+          "process_payment_transaction"
+        ],
+        "role_permissions": {
+          "admin": [
+            "process_payment_transaction",
+            "delete_customer_data",
+            "access_pii_records"
+          ],
+          "user": [
+            "access_pii_records"
+          ]
+        },
+        "max_calls_per_minute": 10,
+        "restricted_fields": [
+          "account_number",
+          "ssn",
+          "credit_card",
+          "password",
+          "token",
+          "secret"
+        ]
+      }
+    },
     "traceability": true
   }
 }
