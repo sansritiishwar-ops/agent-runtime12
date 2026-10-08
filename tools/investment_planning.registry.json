@@ -1,0 +1,27 @@
+{
+  "artifact_type": "tool",
+  "change_type": "create",
+  "config": null,
+  "created_by": null,
+  "dependencies": [],
+  "description": "",
+  "display_name": "Investment Planning",
+  "files": [
+    "tools/investment_planning.py"
+  ],
+  "name": "investment_planning.py",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_56efaeb08841",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "super_agent",
+  "source_type": "custom_code",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
