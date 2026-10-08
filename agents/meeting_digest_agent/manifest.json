@@ -1,7 +1,0 @@
-{
-  "base_image": "neurostack-runtime:0.0.1",
-  "dependencies": [
-    "litellm",
-    "python-dotenv"
-  ]
-}
