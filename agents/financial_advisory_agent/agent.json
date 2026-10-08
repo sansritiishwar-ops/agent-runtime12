@@ -1,0 +1,31 @@
+{
+  "name": "financial_advisory_agent",
+  "displayName": "Financial Advisory Agent",
+  "description": "Test agent for risk tier 3 classification - handles sensitive operations with comprehensive guardrails including PII detection, content moderation, compliance, and multi-level access controls.",
+  "url": "http://localhost:8001/a2a/financial_advisory_agent",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "jailbreak_detection",
+      "pii_detection",
+      "content_policy"
+    ],
+    "output": [
+      "output_validation",
+      "output_pii_redaction",
+      "content_moderation",
+      "quality_analysis",
+      "compliance_disclaimers"
+    ],
+    "traceability": true
+  }
+}

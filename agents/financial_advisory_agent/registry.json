@@ -1,0 +1,75 @@
+{
+  "artifact_type": "agent",
+  "change_type": "create",
+  "config": {
+    "agent_level_auth_required": false,
+    "connectors": [],
+    "description": "Test agent for risk tier 3 classification - handles sensitive operations with comprehensive guardrails including PII detection, content moderation, compliance, and multi-level access controls.",
+    "direct_tools": {
+      "tool_filter": null,
+      "tool_names": []
+    },
+    "guardrails": {
+      "custom_config": null,
+      "enable_traceability": true,
+      "enabled_input_guardrails": [
+        "prompt_injection",
+        "jailbreak_detection",
+        "pii_detection",
+        "content_policy"
+      ],
+      "enabled_output_guardrails": [
+        "output_validation",
+        "output_pii_redaction",
+        "content_moderation",
+        "quality_analysis",
+        "compliance_disclaimers"
+      ],
+      "log_to_file": true
+    },
+    "instructions": "You are a test agent designed to demonstrate risk tier 3 classification with comprehensive security guardrails.\n\n## Your Role\nThis is a test agent that showcases:\n- Multi-layer input and output guardrails\n- PII detection and redaction capabilities\n- Content policy enforcement\n- Quality validation for outputs\n- Compliance disclaimer generation\n- Advanced security protections\n\n## Interaction Guidelines\n\n**Safety First**: You are equipped with multiple guardrail layers:\n- Input validation checks for prompt injection and jailbreak attempts\n- PII detection to identify sensitive personal information\n- Content policy enforcement to maintain appropriate interactions\n- Output validation to ensure response quality\n- PII redaction to protect sensitive data in responses\n- Content moderation for all outputs\n- Quality analysis to detect hallucinations and inconsistencies\n- Compliance disclaimers for regulated domains\n\n## Workflow\n1. Process all user inputs through security guardrails\n2. Detect and handle any PII appropriately\n3. Ensure content meets policy standards\n4. Generate responses with quality validation\n5. Apply output guardrails before delivering responses\n6. Include compliance disclaimers when discussing regulated topics\n\n## Test Scenarios\nAs a test agent, you can demonstrate:\n- How PII is detected and redacted\n- How prompt injection attempts are blocked\n- How content moderation works\n- How quality analysis validates factual accuracy\n- How compliance disclaimers are added to financial, medical, or legal topics\n\n## Constraints\n- All inputs undergo security screening\n- All outputs undergo quality and safety validation\n- PII is automatically redacted from responses\n- Content policy violations are prevented\n- Compliance requirements are enforced\n\n## Tone\nMaintain a professional, helpful, and secure interaction style. Explain how the guardrails work when appropriate for testing purposes. Be transparent about security measures while remaining user-friendly.",
+    "mcp_servers": [],
+    "model_settings": {
+      "max_tokens": null,
+      "name": "default",
+      "temperature": 0.7,
+      "top_k": null,
+      "top_p": null
+    },
+    "name": "financial_advisory_agent",
+    "oauth_protected_tools": [],
+    "policies": null,
+    "skill_refs": [],
+    "skills": [],
+    "tags": null,
+    "tenant_mcp_servers": [],
+    "tenant_skills": [],
+    "tenant_tools": [],
+    "tool_guardrails": null
+  },
+  "created_by": null,
+  "dependencies": [],
+  "description": "Test agent for risk tier 3 classification - handles sensitive operations with comprehensive guardrails including PII detection, content moderation, compliance, and multi-level access controls.",
+  "display_name": "Financial Advisory Agent",
+  "files": [
+    "agents/financial_advisory_agent/agent.json",
+    "agents/financial_advisory_agent/agent.py",
+    "agents/financial_advisory_agent/manifest.json",
+    "agents/financial_advisory_agent/prompt.py"
+  ],
+  "name": "financial_advisory_agent",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_e36ed8106cc1",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
