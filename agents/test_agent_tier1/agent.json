@@ -1,0 +1,25 @@
+{
+  "name": "test_agent_tier1",
+  "displayName": "Test Agent Tier1",
+  "description": "A simple conversational test agent with no tools or external integrations, designed for Risk Tier 1 testing",
+  "url": "http://localhost:8001/a2a/test_agent_tier1",
+  "version": "1.0.0",
+  "protocolVersion": "0.3",
+  "capabilities": {},
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain"
+  ],
+  "guardrails": {
+    "input": [
+      "prompt_injection",
+      "jailbreak_detection"
+    ],
+    "output": [
+      "output_validation"
+    ],
+    "traceability": true
+  }
+}
