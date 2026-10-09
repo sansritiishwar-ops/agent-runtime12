@@ -1,0 +1,44 @@
+{
+  "artifact_type": "mcp",
+  "change_type": "create",
+  "config": {
+    "description": null,
+    "server_name": "deployment_testing",
+    "tools": [
+      "build_timeline",
+      "group_into_episodes",
+      "summarize_episode"
+    ]
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "threat_hunting_timeline_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "ed4a3d05b1f3cec0a77a989a1eabaa52464453db5a7ca3392309f6ea9222deff",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "",
+  "display_name": "Deployment Testing",
+  "files": [
+    "mcp_servers/internal/deployment_testing.py",
+    "mcp_servers/internal/deployment_testing_toolset.py"
+  ],
+  "name": "deployment_testing.py",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_0068c8ed2e31",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
