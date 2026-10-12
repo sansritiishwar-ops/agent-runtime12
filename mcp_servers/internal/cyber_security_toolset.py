@@ -17,10 +17,17 @@ _spec_tools_pii_detection_tools = _ilu.spec_from_file_location(
 )
 _mod_tools_pii_detection_tools = _ilu.module_from_spec(_spec_tools_pii_detection_tools)
 _spec_tools_pii_detection_tools.loader.exec_module(_mod_tools_pii_detection_tools)
+_spec_tools_threat_hunting_notebook_tools = _ilu.spec_from_file_location(
+    'threat_hunting_notebook_tools',
+    _pl.Path(__file__).parent.parent.parent / 'tools' / 'threat_hunting_notebook_tools.py',
+)
+_mod_tools_threat_hunting_notebook_tools = _ilu.module_from_spec(_spec_tools_threat_hunting_notebook_tools)
+_spec_tools_threat_hunting_notebook_tools.loader.exec_module(_mod_tools_threat_hunting_notebook_tools)
 
 tool_detect_pii_in_text = _mod_tools_pii_detection_tools.detect_pii_in_text
 tool_mask_pii_in_text = _mod_tools_pii_detection_tools.mask_pii_in_text
 tool_process_pii_masking_batch = _mod_tools_pii_detection_tools.process_pii_masking_batch
+tool_write_hunt_artifacts = _mod_tools_threat_hunting_notebook_tools.write_hunt_artifacts
 
 mcp = FastMCP("cyber_security")
 
@@ -50,6 +57,15 @@ async def process_pii_masking_batch(input_path: str, out_path: str) -> Dict[str,
     Calls the `process_pii_masking_batch` tool from the `pii_detection_tools` tool module.
     """
     return tool_process_pii_masking_batch(input_path=input_path, out_path=out_path)
+
+
+@mcp.tool()
+async def write_hunt_artifacts(case_state: Dict[str, Any], out_dir: Optional[str] = None) -> Dict[str, Any]:
+    """
+    Auto-generated MCP tool wrapper for `write_hunt_artifacts`.
+    Calls the `write_hunt_artifacts` tool from the `threat_hunting_notebook_tools` tool module.
+    """
+    return tool_write_hunt_artifacts(case_state=case_state, out_dir=out_dir)
 
 
 if __name__ == "__main__":
