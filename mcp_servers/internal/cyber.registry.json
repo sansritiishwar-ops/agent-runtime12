@@ -1,0 +1,52 @@
+{
+  "artifact_type": "mcp",
+  "change_type": "create",
+  "config": {
+    "description": null,
+    "server_name": "cyber",
+    "tools": [
+      "detect_pii_in_text",
+      "process_pii_masking_batch",
+      "mask_pii_in_text",
+      "load_threat_hunting_dataset"
+    ]
+  },
+  "created_by": null,
+  "dependencies": [
+    {
+      "name": "pii_detection_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "d67badbd002a493d047bb36a0494ce28ead6fd685eac031911bda73d9c5289f0",
+      "upstream_version": "platform"
+    },
+    {
+      "name": "threat_hunting_data_tools.py",
+      "origin": "platform",
+      "type": "tool",
+      "upstream_content_hash": "ea19cd6d97188e40232e334e458d0662760eb4a768da7d89e3b3288cd84eba1b",
+      "upstream_version": "platform"
+    }
+  ],
+  "description": "",
+  "display_name": "Cyber",
+  "files": [
+    "mcp_servers/internal/cyber.py",
+    "mcp_servers/internal/cyber_toolset.py"
+  ],
+  "name": "cyber.py",
+  "origin": "tenant_generated",
+  "replaces_version_no": null,
+  "restored_from_version_no": null,
+  "risk": {
+    "decision_id": "risk_3d0d49658cd2",
+    "tier": 1
+  },
+  "schema_version": 1,
+  "secret_refs": [],
+  "source": "internal_ui",
+  "source_type": "generated",
+  "tags": [],
+  "version": "1.0.0",
+  "version_no": 1
+}
